@@ -4,11 +4,14 @@ import AppRouter from '../components/Router';
 import { auth } from '../firebase';
 function App() {
   const [isUser, setIsUser] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
 
+  const currentYear = new Date();
   useEffect(
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsUser(true);
+        setUserInfo(user);
       } else {
         setIsUser(false);
       }
@@ -17,7 +20,8 @@ function App() {
   );
   return (
     <div>
-      <AppRouter isUser={isUser} />
+      <AppRouter isUser={isUser} userInfo={userInfo} />
+      <footer>&copy;{currentYear.getFullYear()} BAMBOO GROVE</footer>
     </div>
   );
 }
