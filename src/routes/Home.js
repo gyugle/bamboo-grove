@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import Posting from '../components/Posting';
 import ShowPostings from '../components/ShowPostings';
+import defaultImage from '../img/default.jpg';
 
 function Home({ userInfo }) {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ function Home({ userInfo }) {
   return (
     <div>
       <h3>Welcome to Bamboo Grove!</h3>
+      <img src={defaultImage} width="80px" height="80px" alt="profile" />
       <Link to="/profile">
         <button>Edit Profile</button>
       </Link>
@@ -24,7 +26,7 @@ function Home({ userInfo }) {
       <Posting userInfo={userInfo} />
 
       <hr />
-      <ShowPostings />
+      <ShowPostings userInfo={userInfo} />
       <hr />
     </div>
   );
