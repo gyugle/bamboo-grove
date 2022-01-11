@@ -8,7 +8,7 @@ function Profile({ userInfo }) {
     <div>
       <h2>Profile</h2>
       <button onClick={() => navigate(-1)}>BACK</button>
-      <div>ser Image</div>
+      <div>user Image</div>
       <ul>
         <li>Nickname : {userInfo.displayName}</li>
         <li>Email : {userInfo.email}</li>
