@@ -41,6 +41,7 @@ function SignUp() {
   return (
     <div>
       <h3>Sign up page</h3>
+      <button onClick={() => navigate(-1)}>BACK</button>
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
