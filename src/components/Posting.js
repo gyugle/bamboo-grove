@@ -5,11 +5,8 @@ function Posting({ userInfo }) {
   const [text, setText] = useState('');
 
   const onChange = (event) => {
-    const name = event.target.name;
     const value = event.target.value;
-
     setText(value);
-    console.log(value);
   };
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -17,8 +14,9 @@ function Posting({ userInfo }) {
     await addDoc(collection(db, 'postings'), {
       name: userInfo.email,
       text: text,
-      createAt: Date.now(),
-      createdId: userInfo.uid,
+      createdAt: Date.now(),
+      createdBy: userInfo.uid,
+      updatedAt: null,
     });
   };
   return (
@@ -30,7 +28,8 @@ function Posting({ userInfo }) {
           onChange={onChange}
           type="text"
           placeholder="What do you want to say?"
-        ></input>
+          maxLength="150"
+        />
         <button>POST</button>
       </form>
     </div>
