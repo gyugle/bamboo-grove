@@ -12,12 +12,13 @@ function Posting({ userInfo }) {
     event.preventDefault();
     console.log('submit');
     await addDoc(collection(db, 'postings'), {
-      name: userInfo.email,
+      name: userInfo.displayName,
       text: text,
       createdAt: Date.now(),
       createdBy: userInfo.uid,
       updatedAt: null,
     });
+    setText('');
   };
   return (
     <div>
