@@ -5,7 +5,8 @@ import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import SignUp from '../routes/SignUp';
 import Profile from '../routes/Profile';
-const AppRouter = ({ isUser, userInfo }) => {
+
+const AppRouter = ({ isUser, userInfo, callUser }) => {
   return (
     <div>
       <Router>
@@ -15,7 +16,10 @@ const AppRouter = ({ isUser, userInfo }) => {
           ) : (
             <Route path="/" element={<Auth />} />
           )}
-          <Route path="/profile" element={<Profile userInfo={userInfo} />} />
+          <Route
+            path="/profile"
+            element={<Profile userInfo={userInfo} callUser={callUser} />}
+          />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>
