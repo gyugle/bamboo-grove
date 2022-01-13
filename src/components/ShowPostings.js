@@ -60,30 +60,36 @@ function ShowPostings({ userInfo }) {
         {postings.map((posting) => (
           <div key={posting.id}>
             <h6>{posting.name}</h6>
-            <h6>{posting.createdBy}</h6>
             <h4>{posting.text}</h4>
             <span>Create at {convertTime(posting.createdAt)}</span>
             {posting.updatedAt && (
               <div>Update at {convertTime(posting.updatedAt)}</div>
             )}
-
-            <button onClick={(event) => onClickOpenModal(posting, event)}>
-              Edit
-            </button>
-            {openModal && select === posting.id && (
-              <UpdateModal
-                setOpenModal={setOpenModal}
-                setSelect={setSelect}
-                posting={posting}
-              />
+            {userInfo.uid === posting.createdBy && (
+              <div>
+                {!openModal && (
+                  <button onClick={(event) => onClickOpenModal(posting, event)}>
+                    Edit
+                  </button>
+                )}
+                {openModal && select === posting.id && (
+                  <UpdateModal
+                    setOpenModal={setOpenModal}
+                    setSelect={setSelect}
+                    posting={posting}
+                  />
+                )}
+                {!openModal && (
+                  <button
+                    onClick={(event) => {
+                      onClickDelete(posting.id, event);
+                    }}
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
             )}
-            <button
-              onClick={(event) => {
-                onClickDelete(posting.id, event);
-              }}
-            >
-              Delete
-            </button>
           </div>
         ))}
       </div>
