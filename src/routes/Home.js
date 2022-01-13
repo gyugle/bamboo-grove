@@ -1,12 +1,16 @@
-import React from 'react';
-import { auth } from '../firebase';
+import React, { useEffect, useState } from 'react';
+import bucket, { auth } from '../firebase';
 import { useNavigate, Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import Posting from '../components/Posting';
 import ShowPostings from '../components/ShowPostings';
 import defaultImage from '../img/default.jpg';
+import Navbar from '../components/Navbar';
 
 function Home({ userInfo }) {
+  const [name, setName] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
+
   const navigate = useNavigate();
 
   const logOut = async () => {
@@ -14,20 +18,40 @@ function Home({ userInfo }) {
     navigate('/');
   };
 
+  const callUser = () => {
+    onAuthStateChanged(auth, (user) => {
+      setName(user.displayName);
+      setImgUrl(user.photoURL);
+    });
+  };
+  useEffect(() => {
+    callUser();
+  }, []);
+
   return (
     <div>
       <h3>Welcome to Bamboo Grove!</h3>
-      <img src={defaultImage} width="80px" height="80px" alt="profile" />
-      <Link to="/profile">
-        <button>Edit Profile</button>
-      </Link>
-      <button onClick={logOut}>LogOut</button>
-
-      <Posting userInfo={userInfo} />
-
+      {imgUrl ? (
+        <img src={imgUrl} width="120px" height="90px" alt="profile" />
+      ) : (
+        <img src={defaultImage} width="120px" height="90px" alt="profile" />
+      )}
+      <span> {name}</span>
+      <div>
+        <Link to="/profile">
+          <button>Edit Profile</button>
+        </Link>
+        <button onClick={logOut}>LogOut</button>
+      </div>
+      <div>
+        <Posting userInfo={userInfo} />
+      </div>
       <hr />
-      <ShowPostings userInfo={userInfo} />
+      <div>
+        <ShowPostings userInfo={userInfo} />
+      </div>
       <hr />
+      <Navbar />
     </div>
   );
 }
