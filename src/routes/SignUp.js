@@ -1,9 +1,16 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  browserSessionPersistence,
+  createUserWithEmailAndPassword,
+  setPersistence,
+  updateProfile,
+} from 'firebase/auth';
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 
 function SignUp() {
+  const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
@@ -19,6 +26,8 @@ function SignUp() {
       setPassword(value);
     } else if (name === 'confPassword') {
       setConfPassword(value);
+    } else if (name === 'nickname') {
+      setNickname(value);
     }
   };
 
@@ -26,15 +35,18 @@ function SignUp() {
   const onSubmit = (event) => {
     event.preventDefault();
     if (password === confPassword) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          navigate('/');
-        })
+      setPersistence(auth, browserSessionPersistence)
+        .then(() =>
+          createUserWithEmailAndPassword(auth, email, password).then((user) => {
+            updateProfile(user.user, { displayName: nickname });
+            navigate('/');
+          })
+        )
         .catch((err) => {
           console.log(err);
         });
     } else {
-      console.log('Passwords do not match!!');
+      window.alert('Passwords do not match!!');
     }
   };
 
@@ -43,6 +55,16 @@ function SignUp() {
       <h3>Sign up page</h3>
       <button onClick={() => navigate(-1)}>BACK</button>
       <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          value={nickname}
+          type="text"
+          placeholder="Nickname"
+          name="nickname"
+          maxLength="20"
+          required
+        />
+
         <input
           onChange={onChange}
           type="email"
