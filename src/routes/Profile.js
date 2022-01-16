@@ -5,7 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 import bucket, { auth } from '../firebase';
-
+import styles from '../css/profile.module.css';
+import bambooIcon from '../icon/bamboo.png';
+import defaultImage from '../img/default.png';
+import Logo from '../components/Logo';
 function Profile({ userInfo }) {
   const [prevName, setPrevName] = useState('');
   const [prevImgUrl, setPrevImgUrl] = useState('');
@@ -67,7 +70,7 @@ function Profile({ userInfo }) {
       }
     }
     // console.log(`after update : ${imgUrl}`);
-    navigate(-1);
+    navigate('/');
   };
 
   const navigate = useNavigate();
@@ -78,41 +81,42 @@ function Profile({ userInfo }) {
 
   return (
     <div>
-      <h2>Profile</h2>
-      <button onClick={() => navigate(-1)}>BACK</button>
-      <div>
-        {!newImgUrl && prevImgUrl && (
-          <img src={prevImgUrl} width="120px" height="90px" alt="profile" />
-        )}
-        {newImgUrl && (
-          <img src={newImgUrl} width="120px" height="90px" alt="profile" />
-        )}
+      <Logo />
+      <hr />
+      <div className={styles.body}>
+        <div className={styles.photo}>
+          {!newImgUrl && !prevImgUrl && (
+            <img src={defaultImage} alt="profile" />
+          )}
+          {!newImgUrl && prevImgUrl && <img src={prevImgUrl} alt="profile" />}
+          {newImgUrl && <img src={newImgUrl} alt="profile" />}
+        </div>
+        <form onSubmit={onSubmitUpdate}>
+          <ul className={styles.userinfo}>
+            <li>
+              <input
+                onChange={onChangeImage}
+                type="file"
+                accept="image/*"
+                name="avatar"
+              />
+            </li>
+            <li>Email : {email}</li>
+            <li>
+              Nickname :&nbsp;
+              <input
+                type="text"
+                name="nickname"
+                onChange={onChange}
+                value={newName}
+              />
+            </li>
+          </ul>
+          {(newImgUrl || prevName !== newName) && (
+            <button id={styles.updateBtn}>UPDATE</button>
+          )}
+        </form>
       </div>
-      <form onSubmit={onSubmitUpdate}>
-        <ul>
-          <li>
-            <input
-              onChange={onChangeImage}
-              type="file"
-              accept="image/*"
-              name="avatar"
-            />
-          </li>
-          <li>Email : {email}</li>
-          <li>
-            Nickname :&nbsp;
-            <input
-              type="text"
-              name="nickname"
-              onChange={onChange}
-              value={newName}
-            />
-          </li>
-        </ul>
-        {(newImgUrl || prevName !== newName) && <button>UPDATE</button>}
-      </form>
-      <div>My postings list</div>
-
       <hr />
       <Navbar />
     </div>

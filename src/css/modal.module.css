@@ -1,0 +1,45 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.body {
+  height: 250px;
+  background-color: white;
+  margin: 20vh 12vw 10vh 12vw;
+
+  border-radius: 5px;
+}
+#cancel {
+  margin: 10px;
+  justify-self: self-end;
+  text-align: right;
+  width: 18px;
+  height: 18px;
+}
+#title {
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.form textarea {
+  font-size: 16px;
+  width: 60vw;
+  height: 120px;
+  border: solid 1px black;
+  border-radius: 5px;
+  font-size: 12px;
+  resize: none;
+}
+.form button {
+  margin-top: 10px;
+}

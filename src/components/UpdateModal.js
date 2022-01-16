@@ -1,6 +1,8 @@
 import { doc, updateDoc } from 'firebase/firestore';
 import { useState } from 'react';
 import { db } from '../firebase';
+import styles from '../css/modal.module.css';
+import cancelIcon from '../icon/cancel.png';
 
 function UpdateModal({ setOpenModal, setSelect, posting }) {
   const [newPost, setNewPost] = useState(posting.text);
@@ -18,15 +20,24 @@ function UpdateModal({ setOpenModal, setSelect, posting }) {
     }
   };
   return (
-    <div>
-      <h3>Modal Updating...</h3>
-      <div>
-        <form onSubmit={onSubmitUpdate}>
-          <input onChange={onChange} value={newPost} />
+    <div className={styles.modal}>
+      <div className={styles.body}>
+        <img
+          id={styles.cancel}
+          src={cancelIcon}
+          onClick={() => setOpenModal(false)}
+          alt="cancel"
+        />
+        <h4 id={styles.title}>EDIT POSTING</h4>
+        <div className={styles.form}>
+          <form onSubmit={onSubmitUpdate}>
+            <textarea onChange={onChange} value={newPost} />
 
-          <button>UPDATE</button>
-        </form>
-        <button onClick={() => setOpenModal(false)}>CANCEL</button>
+            <div>
+              <button>UPDATE</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

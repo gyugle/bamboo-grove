@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-flow: column;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.posting {
+  margin: 5px 10 5px 10px;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 5px;
+  font-size: 12px;
+  resize: none;
+}
+.form button {
+  margin: 5px 0 5px 0;
+  width: 80px;
+  height: 30px;
+}

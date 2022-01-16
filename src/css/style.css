@@ -1,0 +1,129 @@
+/* App.js */
+.app {
+  padding: 0;
+  margin: 0;
+  width: auto;
+}
+
+/* Auth.js */
+
+.auth_main {
+  margin-top: 5vh;
+  height: 80vh;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.auth_form {
+  margin: 10vh 0 10vh 0;
+}
+.auth_email {
+  padding: 5px 0 5px 0;
+}
+.auth_email > input {
+  height: 15px;
+  width: 200px;
+  padding: 10px;
+}
+.auth_password {
+  padding: 5px 0 5px 0;
+}
+.auth_password > input {
+  height: 15px;
+  width: 200px;
+  padding: 10px;
+}
+.icon {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.auth_loginBtn {
+  margin-top: 20px;
+}
+.auth_footer {
+  margin-top: 10vh;
+}
+
+/* SignUp.js */
+.signup_main {
+  margin-top: 5vh;
+  height: 90vh;
+
+  width: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+.signup_form {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signup_label {
+  text-align: left;
+  padding-bottom: 5px;
+}
+.signup_property {
+  padding: 5px 0 5px 0;
+}
+.signup_input {
+  height: 15px;
+  width: 200px;
+  padding: 10px;
+}
+.signup_btn {
+  margin-top: 50px;
+  width: 150px;
+  height: 50px;
+}
+.signup_footer {
+  margin-top: 10vh;
+}
+
+/* Navbar.js */
+
+/* Home.js */
+.home_main {
+  height: 90vh;
+  width: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+.home_top {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+.home_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_header {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home_profile {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.home_profile > label {
+  margin-top: 10px;
+}
+.home_profile > img {
+  width: 100px;
+  height: 95px;
+  border-radius: 50%;
+}
+.home_body {
+  margin: 0;
+  height: 60vh;
+  margin-bottom: 10vh;
+  overflow-y: scroll;
+}

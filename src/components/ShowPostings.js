@@ -10,6 +10,9 @@ import {
 import { auth, db } from '../firebase';
 import Posting from './Posting';
 import UpdateModal from './UpdateModal';
+import styles from '../css/showpostings.module.css';
+import editIcon from '../icon/edit.png';
+import deleteIcon from '../icon/delete.png';
 
 function ShowPostings({ userInfo }) {
   const [openModal, setOpenModal] = useState(false);
@@ -54,42 +57,58 @@ function ShowPostings({ userInfo }) {
 
     setOpenModal(true);
   };
+
   return (
-    <div>
+    <div className={styles.main}>
       <div>
         {postings.map((posting) => (
-          <div key={posting.id}>
-            <h6>{posting.name}</h6>
-            <h4>{posting.text}</h4>
-            <span>Create at {convertTime(posting.createdAt)}</span>
-            {posting.updatedAt && (
-              <div>Update at {convertTime(posting.updatedAt)}</div>
-            )}
-            {userInfo.uid === posting.createdBy && (
-              <div>
-                {!openModal && (
-                  <button onClick={(event) => onClickOpenModal(posting, event)}>
-                    Edit
-                  </button>
-                )}
-                {openModal && select === posting.id && (
-                  <UpdateModal
-                    setOpenModal={setOpenModal}
-                    setSelect={setSelect}
-                    posting={posting}
-                  />
-                )}
-                {!openModal && (
-                  <button
-                    onClick={(event) => {
-                      onClickDelete(posting.id, event);
-                    }}
-                  >
-                    Delete
-                  </button>
-                )}
-              </div>
-            )}
+          <div className={styles.post} key={posting.id}>
+            <div className={styles.user}>
+              <img src={posting.photoURL} alt="userImage" />
+              <span className={styles.name}>{posting.name}</span>
+            </div>
+            <p className={styles.content}>{posting.text}</p>
+
+            <div className={styles.postBtns}>
+              {userInfo.uid === posting.createdBy && (
+                <div>
+                  {!openModal && (
+                    <img
+                      src={editIcon}
+                      onClick={(event) => onClickOpenModal(posting, event)}
+                      width="20px"
+                      height="20px"
+                      alt="edit"
+                    />
+                  )}
+                  {openModal && select === posting.id && (
+                    <UpdateModal
+                      setOpenModal={setOpenModal}
+                      setSelect={setSelect}
+                      posting={posting}
+                    />
+                  )}
+                  {!openModal && (
+                    <img
+                      onClick={(event) => {
+                        onClickDelete(posting.id, event);
+                      }}
+                      src={deleteIcon}
+                      width="20px"
+                      height="20px"
+                      alt="delete"
+                    />
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className={styles.time}>
+              <span>Created at {convertTime(posting.createdAt)}</span>
+              {posting.updatedAt && (
+                <div>Updated at {convertTime(posting.updatedAt)}</div>
+              )}
+            </div>
           </div>
         ))}
       </div>

@@ -7,7 +7,9 @@ import {
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../components/Logo';
 import { auth } from '../firebase';
+import bambooIcon from '../icon/bamboo.png';
 
 function SignUp() {
   const [nickname, setNickname] = useState('');
@@ -15,6 +17,7 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
   const navigate = useNavigate();
+  const currentYear = new Date();
 
   const onChange = (event) => {
     event.preventDefault();
@@ -51,43 +54,61 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h3>Sign up page</h3>
-      <button onClick={() => navigate(-1)}>BACK</button>
-      <form onSubmit={onSubmit}>
-        <input
-          onChange={onChange}
-          value={nickname}
-          type="text"
-          placeholder="Nickname"
-          name="nickname"
-          maxLength="20"
-          required
-        />
+    <div className="signup_main">
+      <Logo />
 
-        <input
-          onChange={onChange}
-          type="email"
-          placeholder="Email"
-          name="email"
-          required
-        />
-        <input
-          onChange={onChange}
-          type="password"
-          placeholder="Password"
-          name="password"
-          required
-        />
-        <input
-          onChange={onChange}
-          type="password"
-          placeholder="Confirm Password"
-          name="confPassword"
-          required
-        />
-        <button>Sign Up</button>
+      <form onSubmit={onSubmit} className="signup_form">
+        <div className="signup_property">
+          <div className="signup_label">Nickname</div>
+          <input
+            className="signup_input"
+            onChange={onChange}
+            value={nickname}
+            type="text"
+            placeholder="Nickname"
+            name="nickname"
+            maxLength="20"
+            required
+          />
+        </div>
+        <div className="signup_property">
+          <div className="signup_label">Email</div>
+          <input
+            className="signup_input"
+            onChange={onChange}
+            type="email"
+            placeholder="Email"
+            name="email"
+            required
+          />
+        </div>
+        <div className="signup_property">
+          <div className="signup_label">Password</div>
+          <input
+            className="signup_input"
+            onChange={onChange}
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+        </div>
+        <div className="signup_property">
+          <div className="signup_label">Confirm Password</div>
+          <input
+            className="signup_input"
+            onChange={onChange}
+            type="password"
+            placeholder="Confirm Password"
+            name="confPassword"
+            required
+          />
+        </div>
+        <button className="signup_btn">SIGN UP</button>
       </form>
+      <footer className="signup_footer">
+        &copy;{currentYear.getFullYear()} BAMBOO GROVE
+      </footer>
     </div>
   );
 }

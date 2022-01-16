@@ -1,6 +1,7 @@
 import { addDoc, collection } from 'firebase/firestore';
 import { useState } from 'react';
 import { db } from '../firebase';
+import styles from '../css/posting.module.css';
 function Posting({ userInfo }) {
   const [text, setText] = useState('');
 
@@ -17,13 +18,15 @@ function Posting({ userInfo }) {
       createdAt: Date.now(),
       createdBy: userInfo.uid,
       updatedAt: null,
+      photoURL: userInfo.photoURL,
     });
     setText('');
   };
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <input
+      <form onSubmit={onSubmit} className={styles.form}>
+        <textarea
+          className={styles.posting}
           name="text"
           value={text}
           onChange={onChange}

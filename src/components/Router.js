@@ -5,6 +5,7 @@ import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import SignUp from '../routes/SignUp';
 import Profile from '../routes/Profile';
+import MyPostings from '../routes/MyPostings';
 
 const AppRouter = ({ isUser, userInfo, callUser }) => {
   return (
@@ -21,6 +22,10 @@ const AppRouter = ({ isUser, userInfo, callUser }) => {
             element={<Profile userInfo={userInfo} callUser={callUser} />}
           />
           <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/mypostings"
+            element={<MyPostings userInfo={userInfo} />}
+          />
         </Routes>
       </Router>
     </div>
