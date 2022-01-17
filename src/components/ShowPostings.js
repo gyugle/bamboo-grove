@@ -13,6 +13,7 @@ import UpdateModal from './UpdateModal';
 import styles from '../css/showpostings.module.css';
 import editIcon from '../icon/edit.png';
 import deleteIcon from '../icon/delete.png';
+import defaultImage from '../img/default.png';
 
 function ShowPostings({ userInfo }) {
   const [openModal, setOpenModal] = useState(false);
@@ -63,8 +64,13 @@ function ShowPostings({ userInfo }) {
       <div>
         {postings.map((posting) => (
           <div className={styles.post} key={posting.id}>
+            {console.log(posting.photoURL)}
             <div className={styles.user}>
-              {/* <img src={posting.photoURL} alt="userImage" /> */}
+              {posting.photoURL ? (
+                <img src={posting.photoURL} alt="userImage" />
+              ) : (
+                <img src={defaultImage} alt="userImage" />
+              )}
               <span className={styles.name}>{posting.name}</span>
             </div>
             <p className={styles.content}>{posting.text}</p>

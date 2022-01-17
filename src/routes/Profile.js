@@ -23,8 +23,6 @@ function Profile({ userInfo }) {
 
   const [newImgUrl, setNewImgUrl] = useState('');
 
-  const imgRef = ref(bucket, `${uid}`);
-
   const callUser = () => {
     onAuthStateChanged(auth, (user) => {
       setPrevName(user.displayName);
@@ -47,8 +45,10 @@ function Profile({ userInfo }) {
   const onChangeImage = async (event) => {
     event.preventDefault();
     const file = event.target.files[0];
+    const imgRef = ref(bucket, `/${uid}/${file.name}`);
     await uploadBytes(imgRef, file);
     const url = await getDownloadURL(imgRef);
+    console.log(file.name);
 
     setNewImgUrl(url);
     // console.log(`onchangeimage ${url}`);
@@ -88,9 +88,12 @@ function Profile({ userInfo }) {
   };
 
   const onClickDeleteImg = async () => {
-    console.log('Delete image');
     const targetImg = ref(bucket, `${uid}`);
     await deleteObject(targetImg);
+    setPrevImgUrl(null);
+    setNewImgUrl(defaultImage);
+  };
+  const onClickDeleteImg2 = async () => {
     setPrevImgUrl(null);
     setNewImgUrl(defaultImage);
   };
@@ -113,9 +116,9 @@ function Profile({ userInfo }) {
           {newImgUrl && <img src={newImgUrl} alt="profile" />}
         </div>
 
-        {/* {!(prevImgUrl === defaultImage) && prevImgUrl && (
-          <button onClick={onClickDeleteImg}>DELETE IMAGE</button>
-        )} */}
+        {!(prevImgUrl === defaultImage) && prevImgUrl && (
+          <button onClick={onClickDeleteImg2}>DELETE IMAGE</button>
+        )}
 
         <form onSubmit={onSubmitUpdate}>
           <ul className={styles.userinfo}>
