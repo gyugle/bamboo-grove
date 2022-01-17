@@ -1,0 +1,9 @@
+.img_area {
+  margin-top: 25vh;
+
+  text-align: center;
+}
+.img_area img {
+  max-width: 320px;
+  vertical-align: middle;
+}

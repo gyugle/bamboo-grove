@@ -6,21 +6,21 @@ import Home from '../routes/Home';
 import SignUp from '../routes/SignUp';
 import Profile from '../routes/Profile';
 import MyPostings from '../routes/MyPostings';
+import Loading from './Loading';
 
-const AppRouter = ({ isUser, userInfo, callUser }) => {
+const AppRouter = ({ isUser, userInfo, pageLoad }) => {
   return (
     <div>
       <Router>
         <Routes>
-          {isUser ? (
+          {!pageLoad ? (
+            <Route path="/" element={<Loading />} />
+          ) : isUser ? (
             <Route path="/" element={<Home userInfo={userInfo} />} />
           ) : (
             <Route path="/" element={<Auth />} />
           )}
-          <Route
-            path="/profile"
-            element={<Profile userInfo={userInfo} callUser={callUser} />}
-          />
+          <Route path="/profile" element={<Profile userInfo={userInfo} />} />
           <Route path="/signup" element={<SignUp />} />
           <Route
             path="/mypostings"

@@ -7,6 +7,7 @@ import '../css/style.css';
 function App() {
   const [isUser, setIsUser] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const [pageLoad, setPageLoad] = useState(false);
 
   useEffect(
     onAuthStateChanged(auth, (user) => {
@@ -16,12 +17,13 @@ function App() {
       } else {
         setIsUser(false);
       }
+      setPageLoad(true);
     }),
     []
   );
   return (
     <div className="app">
-      <AppRouter isUser={isUser} userInfo={userInfo} />
+      <AppRouter isUser={isUser} pageLoad={pageLoad} userInfo={userInfo} />
     </div>
   );
 }
