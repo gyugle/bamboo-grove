@@ -30,3 +30,10 @@
 .userinfo li {
   margin-bottom: 10px;
 }
+
+.delete {
+  color: white;
+  margin: auto;
+  display: block;
+  background-color: #f03e3e;
+}

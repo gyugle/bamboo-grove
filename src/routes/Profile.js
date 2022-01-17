@@ -1,5 +1,10 @@
-import { onAuthStateChanged, updateProfile } from 'firebase/auth';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { deleteUser, onAuthStateChanged, updateProfile } from 'firebase/auth';
+import {
+  deleteObject,
+  getDownloadURL,
+  ref,
+  uploadBytes,
+} from 'firebase/storage';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -50,7 +55,7 @@ function Profile({ userInfo }) {
   };
   const onSubmitUpdate = async (event) => {
     event.preventDefault();
-    const ok = window.confirm('Are you sure to update?');
+    const ok = window.confirm('Are you sure update your profile?');
     if (ok) {
       if (newImgUrl && newName) {
         await updateProfile(userInfo, {
@@ -73,6 +78,21 @@ function Profile({ userInfo }) {
     navigate('/');
   };
 
+  const onClickLeave = async () => {
+    console.log('Leave...');
+    const ok = window.confirm('Are you sure delete your account?');
+    if (ok) {
+      await deleteUser(userInfo);
+      navigate('/');
+    }
+  };
+
+  const onClickDeleteImg = async () => {
+    console.log('Delete image');
+    const targetImg = ref(bucket, `${uid}`);
+    await deleteObject(targetImg);
+    setPrevImgUrl(null);
+  };
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -91,6 +111,7 @@ function Profile({ userInfo }) {
           {!newImgUrl && prevImgUrl && <img src={prevImgUrl} alt="profile" />}
           {newImgUrl && <img src={newImgUrl} alt="profile" />}
         </div>
+        <button onClick={onClickDeleteImg}>DELETE IMAGE</button>
         <form onSubmit={onSubmitUpdate}>
           <ul className={styles.userinfo}>
             <li>
@@ -118,6 +139,9 @@ function Profile({ userInfo }) {
         </form>
       </div>
       <hr />
+      <button className={styles.delete} onClick={onClickLeave}>
+        DELETE MY ACCOUNT
+      </button>
       <Navbar />
     </div>
   );
