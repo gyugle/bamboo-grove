@@ -64,7 +64,7 @@ function ShowPostings({ userInfo }) {
         {postings.map((posting) => (
           <div className={styles.post} key={posting.id}>
             <div className={styles.user}>
-              <img src={posting.photoURL} alt="userImage" />
+              {/* <img src={posting.photoURL} alt="userImage" /> */}
               <span className={styles.name}>{posting.name}</span>
             </div>
             <p className={styles.content}>{posting.text}</p>
