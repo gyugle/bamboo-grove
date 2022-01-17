@@ -112,7 +112,9 @@ function Profile({ userInfo }) {
           {!newImgUrl && prevImgUrl && <img src={prevImgUrl} alt="profile" />}
           {newImgUrl && <img src={newImgUrl} alt="profile" />}
         </div>
-        {prevImgUrl && <button onClick={onClickDeleteImg}>DELETE IMAGE</button>}
+        {!(prevImgUrl === defaultImage) && prevImgUrl && (
+          <button onClick={onClickDeleteImg}>DELETE IMAGE</button>
+        )}
         <form onSubmit={onSubmitUpdate}>
           <ul className={styles.userinfo}>
             <li>
