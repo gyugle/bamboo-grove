@@ -73,9 +73,9 @@ function Profile({ userInfo }) {
           photoURL: prevImgUrl,
         });
       }
+      navigate('/');
     }
     // console.log(`after update : ${imgUrl}`);
-    navigate('/');
   };
 
   const onClickLeave = async () => {
@@ -92,6 +92,7 @@ function Profile({ userInfo }) {
     const targetImg = ref(bucket, `${uid}`);
     await deleteObject(targetImg);
     setPrevImgUrl(null);
+    setNewImgUrl(defaultImage);
   };
   const navigate = useNavigate();
 
@@ -111,7 +112,7 @@ function Profile({ userInfo }) {
           {!newImgUrl && prevImgUrl && <img src={prevImgUrl} alt="profile" />}
           {newImgUrl && <img src={newImgUrl} alt="profile" />}
         </div>
-        <button onClick={onClickDeleteImg}>DELETE IMAGE</button>
+        {prevImgUrl && <button onClick={onClickDeleteImg}>DELETE IMAGE</button>}
         <form onSubmit={onSubmitUpdate}>
           <ul className={styles.userinfo}>
             <li>
