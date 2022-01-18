@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/bamboo-grove/static/css/main.84cc734a.css",
-    "main.js": "/bamboo-grove/static/js/main.775df18a.js",
+    "main.css": "/bamboo-grove/static/css/main.1dfa0b06.css",
+    "main.js": "/bamboo-grove/static/js/main.96e4c764.js",
+    "static/media/Dongle-Regular.ttf": "/bamboo-grove/static/media/Dongle-Regular.be19c2ab1576230dd28d.ttf",
+    "static/media/Dongle-Regular.eot?iefix": "/bamboo-grove/static/media/Dongle-Regular.d76a22834cda0b9f358e.eot",
     "static/media/loading.gif": "/bamboo-grove/static/media/loading.dbc35ca1605fdd5d1e31.gif",
     "static/media/default.png": "/bamboo-grove/static/media/default.2fda6558cd58b877e14f.png",
     "index.html": "/bamboo-grove/index.html",
-    "main.84cc734a.css.map": "/bamboo-grove/static/css/main.84cc734a.css.map",
-    "main.775df18a.js.map": "/bamboo-grove/static/js/main.775df18a.js.map"
+    "main.1dfa0b06.css.map": "/bamboo-grove/static/css/main.1dfa0b06.css.map",
+    "main.96e4c764.js.map": "/bamboo-grove/static/js/main.96e4c764.js.map"
   },
   "entrypoints": [
-    "static/css/main.84cc734a.css",
-    "static/js/main.775df18a.js"
+    "static/css/main.1dfa0b06.css",
+    "static/js/main.96e4c764.js"
   ]
 }
