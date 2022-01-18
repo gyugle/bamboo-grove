@@ -31,6 +31,7 @@ function MyPostings({ userInfo }) {
       <div>
         <Logo />
         <hr />
+        <h3 className={styles.title}>MY POSTINGS</h3>
         {postings.map((posting) => {
           if (userInfo.uid !== posting.createdBy) {
             return null;
