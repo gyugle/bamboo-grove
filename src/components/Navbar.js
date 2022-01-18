@@ -2,6 +2,7 @@ import homeIcon from '../icon/home.png';
 import mypostIcon from '../icon/mypost.png';
 import profileIcon from '../icon/profile.png';
 import logoutIcon from '../icon/logout.png';
+import questionIcon from '../icon/question.png';
 import styles from '../css/navbar.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
@@ -32,6 +33,11 @@ function Navbar() {
         <div>
           <Link to="/profile">
             <img src={profileIcon} className={styles.icon} alt="profile" />
+          </Link>
+        </div>
+        <div>
+          <Link to="/QnA">
+            <img src={questionIcon} className={styles.icon} alt="QnA" />
           </Link>
         </div>
         <div>
