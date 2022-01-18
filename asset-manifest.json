@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bamboo-grove/static/css/main.387797b7.css",
+    "main.css": "/bamboo-grove/static/css/main.84cc734a.css",
     "main.js": "/bamboo-grove/static/js/main.775df18a.js",
     "static/media/loading.gif": "/bamboo-grove/static/media/loading.dbc35ca1605fdd5d1e31.gif",
     "static/media/default.png": "/bamboo-grove/static/media/default.2fda6558cd58b877e14f.png",
     "index.html": "/bamboo-grove/index.html",
-    "main.387797b7.css.map": "/bamboo-grove/static/css/main.387797b7.css.map",
+    "main.84cc734a.css.map": "/bamboo-grove/static/css/main.84cc734a.css.map",
     "main.775df18a.js.map": "/bamboo-grove/static/js/main.775df18a.js.map"
   },
   "entrypoints": [
-    "static/css/main.387797b7.css",
+    "static/css/main.84cc734a.css",
     "static/js/main.775df18a.js"
   ]
 }
