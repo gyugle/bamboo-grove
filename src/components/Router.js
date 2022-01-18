@@ -7,6 +7,7 @@ import SignUp from '../routes/SignUp';
 import Profile from '../routes/Profile';
 import MyPostings from '../routes/MyPostings';
 import Loading from './Loading';
+import Feedback from '../routes/Feedback';
 
 const AppRouter = ({ isUser, userInfo, pageLoad }) => {
   return (
@@ -22,6 +23,7 @@ const AppRouter = ({ isUser, userInfo, pageLoad }) => {
           )}
           <Route path="/profile" element={<Profile userInfo={userInfo} />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/QnA" element={<Feedback />} />
           <Route
             path="/mypostings"
             element={<MyPostings userInfo={userInfo} />}
