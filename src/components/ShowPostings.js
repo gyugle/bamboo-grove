@@ -8,7 +8,7 @@ import {
   query,
 } from 'firebase/firestore';
 import { auth, db } from '../firebase';
-import Posting from './Posting';
+
 import UpdateModal from './UpdateModal';
 import styles from '../css/showpostings.module.css';
 import editIcon from '../icon/edit.png';
@@ -64,7 +64,6 @@ function ShowPostings({ userInfo }) {
       <div>
         {postings.map((posting) => (
           <div className={styles.post} key={posting.id}>
-            {console.log(posting.photoURL)}
             <div className={styles.user}>
               {posting.photoURL ? (
                 <img src={posting.photoURL} alt="userImage" />
