@@ -1,0 +1,12 @@
+@font-face {
+  /* 사용할 폰트의 이름 */
+  font-family: 'Dongle';
+  font-display: fallback;
+
+  src: url('./Dongle-Regular.ttf') format('truetype'),
+    url('./Dongle-Regular.eot?iefix') format('embedded-opentype');
+
+  /* 사용할 폰트의 기본 스타일 */
+  font-weight: 900;
+  font-style: normal;
+}

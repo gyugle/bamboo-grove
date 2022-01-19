@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import AppRouter from '../components/Router';
 import { auth } from '../firebase';
 import '../css/style.css';
-
+import '../font/font.css';
 function App() {
   const [isUser, setIsUser] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
