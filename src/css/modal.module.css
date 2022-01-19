@@ -9,11 +9,14 @@
 }
 
 .body {
-  height: 250px;
+  width: 70vw;
+  height: auto;
   background-color: white;
-  margin: 20vh 12vw 10vh 12vw;
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   border-radius: 5px;
+  margin: 10vh auto 10vh auto;
 }
 #cancel {
   margin: 10px;
