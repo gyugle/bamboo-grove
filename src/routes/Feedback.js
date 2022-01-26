@@ -12,9 +12,10 @@ function Feedback() {
       </p>
       <h2>추가할 기능</h2>
       <ul>
-        <li>구글 인증으로 가입하기</li>
+        <li>구글 인증 추가하기</li>
+        <li>Posting 댓글 기능 추가하기</li>
         <li>작성자 정보 노출 선택기능</li>
-        <li>사용자가 작성한 글 한 곳에 모아보기</li>
+        <li>Redux로 최적화 및 코드 정리</li>
       </ul>
       <Navbar />
     </div>
