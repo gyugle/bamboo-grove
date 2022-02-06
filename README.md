@@ -16,27 +16,27 @@ https://gyugle.github.io/bamboo-grove
 현재는 이메일 형태의 아이디와 패스워드를 사용하여 로그인할 수 있습니다.
 (실제 이메일 계정인지 인증하는 과정과 구글계정 로그인 등을 추가할 예정입니다.)
 
-   <img src="https://user-images.githubusercontent.com/42715840/152682536-3004f27f-9373-40bf-8b1b-e0bdfb1bb1ad.png" width="75%" height="50%" alt="auth"/>
+   <img src="https://user-images.githubusercontent.com/42715840/152682536-3004f27f-9373-40bf-8b1b-e0bdfb1bb1ad.png" height="640px" alt="auth"/>
 <br/>
 
 2. 개인 설정 화면
    사용자의 프로필 사진, 이메일, 닉네임을 확인할 수 있습니다. 원하는 사진이나 닉네임으로 변경할 수 있습니다. 또한, 계정정보를 삭제할 수 있는 버튼도 구성하였습니다.
 
-   <img src="https://user-images.githubusercontent.com/42715840/152682533-87437b8b-8d42-4404-8367-ff21cc41456b.png" width="75%" height="50%" alt="profile"/>
+   <img src="https://user-images.githubusercontent.com/42715840/152682533-87437b8b-8d42-4404-8367-ff21cc41456b.png" height="640px" alt="profile"/>
 
 <br/>
 
 3. 홈 화면
    포스팅을 할 수 있는 입력창과 이전에 올라왔던 포스트를 확인할 수 있습니다.
 
-   <img src="https://user-images.githubusercontent.com/42715840/152682527-cc897fa4-7237-4385-b73f-b7e5250042f0.png" width="75%" height="50%" alt="home"/>
+   <img src="https://user-images.githubusercontent.com/42715840/152682527-cc897fa4-7237-4385-b73f-b7e5250042f0.png" height="640px" alt="home"/>
 
 <br/>
 
 4. 개인 포스팅 화면
    현재 로그인 되어 있는 사용자가 올렸던 포스트만 필터링하여 보여지는 공간입니다.
 
-   <img src="https://user-images.githubusercontent.com/42715840/152682530-c89daffd-f098-45aa-95d2-fa8f94756ebe.png" width="75%" height="50%" alt="mypostings"/>
+   <img src="https://user-images.githubusercontent.com/42715840/152682530-c89daffd-f098-45aa-95d2-fa8f94756ebe.png" height="640px"  alt="mypostings"/>
 
 <br/>
 
