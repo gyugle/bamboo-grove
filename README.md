@@ -1,6 +1,6 @@
 # Bamboo Grove
 
-<a href="https://gyugle.github.io/bamboo-grove" target="_blank">Bamboo Grove로 가기</a>
+https://gyugle.github.io/bamboo-grove
 
 
 ## 1. 개요
