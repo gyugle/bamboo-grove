@@ -1,77 +1,83 @@
-# **BAMBOO-GROVE**
+# Bamboo Grove
 
-## **1. 개요**
+https://gyugle.github.io/bamboo-grove
 
-프로젝트 시작일 2022.1.10
+## 1. 개요
 
-React와 Firebase를 이용하여 각 사용자가 글을 Posting 할 수 있는 페이지를 만들었습니다. 기본적인 React를 이해하고 Firebase의 사용방법을 익히기 위해 제작하였습니다.
+- 실시간을 메세지를 전달할 수 있는 웹프로그램입니다.
 
----
+- 본인의 프로필을 구성할 수 있습니다.
 
-## **2. 주요기술**
-
-### 사용언어
-
-- HTML
-- CSS
-- JavaScript
-
-### 주요 라이브러리 및 프레임워크
-
-- React
-- React-router-dom
-- Firebase
-- gh-pages
+- 각자가 포스팅하고 싶은 메세지를 작성할 수 있는 공간입니다.
 
 ---
 
-## **3. 페이지 및 기능 설명**
+## 2. 사용방법
 
-#### (1) 로그인 전
+1. 로그인
+   현재는 이메일 형태의 아이디와 패스워드를 사용하여 로그인할 수 있습니다.
+   (실제 이메일 계정인지 인증하는 과정과 구글계정 로그인 등을 추가할 예정입니다.)
 
-<img src='https://user-images.githubusercontent.com/42715840/151131744-18376245-3e04-4c75-ada0-ec912142a2d0.png' alt='home' width="50%"/>
+![auth](https://user-images.githubusercontent.com/42715840/152682536-3004f27f-9373-40bf-8b1b-e0bdfb1bb1ad.png)
 
-로그인 페이지와 계정이 없는 경우, sign up 페이지로 이동할 수 있는 링크를 만들었습니다.
+2. 개인 설정 화면
+   사용자의 프로필 사진, 이메일, 닉네임을 확인할 수 있습니다. 원하는 사진이나 닉네임으로 변경할 수 있습니다. 또한, 계정정보를 삭제할 수 있는 버튼도 구성하였습니다.
 
-- sign up page
+![profile](https://user-images.githubusercontent.com/42715840/152682533-87437b8b-8d42-4404-8367-ff21cc41456b.png)
 
-  <img src='https://user-images.githubusercontent.com/42715840/151131868-9777fb68-9ba0-4025-b8ec-8df242016c4d.png' alt='signup' width='50%'/>
+3. 홈 화면
+   포스팅을 할 수 있는 입력창과 이전에 올라왔던 포스트를 확인할 수 있습니다.
 
-#### (2) 로그인 후
+![home](https://user-images.githubusercontent.com/42715840/152682527-cc897fa4-7237-4385-b73f-b7e5250042f0.png)
 
-<img src='https://user-images.githubusercontent.com/42715840/151131797-9cacead8-2eb4-4427-b77f-4e0bdfc5c8c4.png' alt='home2' width='50%'/>
+4. 개인 포스팅 화면
+   현재 로그인 되어 있는 사용자가 올렸던 포스트만 필터링하여 보여지는 공간입니다.
 
-포스팅된 모든 사용자들의 글을 확인할 수 있습니다.
-글을 작성하여 제출하면 작성자의 이름, 내용, 생성날짜, 수정날짜, 유저id, 유저photo 값을 가지고 생성되어 포스팅 되는 동시에 Firebase database에 저장됩니다.
-
-로그인된 유저와 작성자가 동일한 경우, 포스팅 된 글에 수정,삭제 버튼이 표시됩니다.
-
-#### (3) 업데이트
-
-<img src='https://user-images.githubusercontent.com/42715840/151131872-5536eb5c-a05b-46ad-8665-21a4626a60a9.png' alt='updateModal' />
-모달창을 이용하여 글을 수정할 수 있으며, 업데이트된 내용과 수정된 시간을 함께 저장합니다.
-
-삭제버튼의 경우 window.confirm 을 이용하여 재차 확인 후 글을 삭제합니다.
-
-#### (4) MyPostings
-
-<img src='https://user-images.githubusercontent.com/42715840/151131833-13dbecd7-31ee-4f9c-aa41-6d6a3fc82ddd.png' alt='mypostings' width='50%'/>
-
-사용자가 작성한 포스팅만 필터하여 보여지며 수정 및 삭제가 가능합니다.
-
-#### (5) Profile
-
-<img src='https://user-images.githubusercontent.com/42715840/151131860-570f5efc-cc96-4f00-b4ba-604306b8e2c8.png' alt='profile' width='50%'/>
-<img src='https://user-images.githubusercontent.com/42715840/151131620-83085977-5075-4348-b4ce-03860ee6575b.png' alt='changephoto' width='50%'/>
-
-사용자의 프로필 사진과 닉네임을 수정할 수 있습니다.
-기존에 있던 사진이나 닉네임이 변경되었을 때, 업데이트 버튼이 활성화 됩니다.
+![mypostings](https://user-images.githubusercontent.com/42715840/152682530-c89daffd-f098-45aa-95d2-fa8f94756ebe.png)
 
 ---
 
-## **4. 개선해야 될 사항**
+## 3. 프로젝트 기술 목록
 
-- 로그인 인증 방법 추가(구글, 깃허브 등)
-- Posting 댓글 기능
-- 작성자 정보 노출 선택기능
-- Redux로 최적화 및 코드 정리
+- React (Client)
+
+- React-router-dom (Router)
+
+- Firebase (Server, Database and so on...)
+
+## 4. 웹프로그램 구조
+
+### - 기본적인 웹페이지 구조
+
+웹페이지 주소로 접속하면 Auth 화면이 보여지고, 사용자의 이메일과 패스워드를 입력하여 로그인 할 수 있습니다.
+계정이 없는 경우, SignUp버튼을 클릭하여 SignUp페이지로 이동하여 계정을 만들 수 있습니다.
+사용자 인증을 마친 후, 하단의 Navbar(Home,MyPostings,Profile,Feedback,LogOut) 어디서든 원하는 페이지로 이동이 가능하며 로그아웃도 할 수 있습니다.
+
+![기본웹페이지 구조](https://user-images.githubusercontent.com/42715840/152682543-346447e7-1914-4617-b3c3-851e20a8d495.png)
+
+### - 프로필 변경 처리 구조
+
+`<textarea>`에서 Posting할 내용을 입력 받습니다.
+Submit 이벤트가 실행되면 Firebase의 addDoc 메소드를 이용하여 사용자의 정보(이름, 프로필사진, 유저고유id), 포스팅될 글의 정보(내용, 작성일, 수정일)을 데이터베이스에 저장합니다.
+![profile_logic](https://user-images.githubusercontent.com/42715840/152682540-f14eb990-3cb5-4949-850f-f768d8cd8719.png)
+
+### - 포스팅 처리 구조
+
+해당페이지로 이동했을 때 useEffect hook을 이용하여 데이터베이스에서 모든 데이터를 불러옵니다. Firebase의 snapshot 메소드를 이용하며, 내림차순으로 State에 저장합니다. 이렇게 불러온 데이터를 정해진 폼으로 보여지게 됩니다.
+
+## 5. 처리하기 어려웠던 부분
+
+사용자 정보를 여러 component에서 재사용시 지연으로 인한 오류
+
+- React-redux 적용하여 코드를 좀 더 간결하게 작성하며, 해당 부분을 해결할 수 있을 것으로 보여집니다.
+
+중복되는 함수를 재사용 하는 방법에 대한 어려움
+
+- 중복되는 부분은 많지만 사용하는 곳에 따라 달라지는 파라미터의 수와 조금씩 변형하여 사용할 수 있어야 하는데 아직까지 상속에 대한 개념이 부족하여 공부하여 해결해 볼 생각입니다.
+
+## 6. 개선사항
+
+- 이메일 인증 처리와 구글계정 로그인 기능 추가
+- Redux로 State 최적화 및 코드 정리
+- 포스팅 댓글 기능 추가하기
+- 작성자 익명 기능 추가하기
