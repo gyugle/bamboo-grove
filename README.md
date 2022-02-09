@@ -1,6 +1,5 @@
 # Bamboo Grove
 
-https://gyugle.github.io/bamboo-grove
 
 
 ## 1. 개요
